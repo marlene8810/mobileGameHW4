@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BOX
   - Water
+  - door
   layers:
   - Default
   - TransparentFX

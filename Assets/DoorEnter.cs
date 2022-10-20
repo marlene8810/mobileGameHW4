@@ -4,38 +4,37 @@ using UnityEngine;
 
 public class DoorEnter : MonoBehaviour
 {
-    public Transform Backdoor;
-
-    private bool IsDoor;  //判斷玩家是否接觸的是門 
-    private Transform PlayerTransform;  //判斷玩家位置 
-
+    public Transform otherdoor;
+    bool playerIn;
+    public GameObject Player;
     void Start()
     {
 
     }
+
+    // Update is called once per frame
     void Update()
     {
 
     }
 
-    //玩家和門產生碰撞
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("玩家進入門的範圍");
-            IsDoor = true;
+            print("Press Q to teleport");
+            playerIn = true;
+            Player = other.gameObject;
+            Player.transform.position = new Vector3(otherdoor.position.x, otherdoor.position.y, otherdoor.position.z);
+
         }
     }
+
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("玩家離開門的範圍");
-            IsDoor = false;
+            playerIn = false;
         }
     }
 }
-
-
-
