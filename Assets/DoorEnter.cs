@@ -5,8 +5,12 @@ using UnityEngine;
 public class DoorEnter : MonoBehaviour
 {
     public Transform otherdoor;
-    bool playerIn;
     public GameObject Player;
+    public bool PlayerIn;
+
+    private float deadDelay = 0.3f; // 設定延遲計時秒數
+    private float deadDelayTimer = 0; // 用來累加時間的變數
+
     void Start()
     {
 
@@ -15,18 +19,22 @@ public class DoorEnter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (PlayerIn == true)
+        {
+            deadDelayTimer += Time.deltaTime;
+            if (deadDelayTimer >= deadDelay)
+            {
+                Player.GetComponent<Transform>().transform.position = new Vector3(otherdoor.position.x, otherdoor.position.y, otherdoor.position.z);
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            print("Press Q to teleport");
-            playerIn = true;
+            PlayerIn = true;
             Player = other.gameObject;
-            Player.transform.position = new Vector3(otherdoor.position.x, otherdoor.position.y, otherdoor.position.z);
-
         }
     }
 
@@ -34,7 +42,7 @@ public class DoorEnter : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            playerIn = false;
+            PlayerIn = false;
         }
     }
 }
