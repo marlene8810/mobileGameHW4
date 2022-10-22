@@ -41,11 +41,11 @@ public class Player : MonoBehaviour
         //地心引力(y) 
         if (!cc.isGrounded)
         {
-            dir.y = -9.8f * 5 * Time.deltaTime;
+            dir.y = -9.8f * 30 * Time.deltaTime;
         }
 
         //推動rigidbody 來移動 
-        cc.Move(dir * Time.deltaTime * 5);
+        cc.Move(dir * Time.deltaTime * 2);
 
         if (Input.GetKey(KeyCode.Space))
         {

@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class DoorEnter : MonoBehaviour
 {
-    public Transform otherdoor;
+    public Transform Otherdoor;
     public GameObject Player;
     public bool PlayerIn;
 
-    private float deadDelay = 0.3f; // 設定延遲計時秒數
-    private float deadDelayTimer = 0; // 用來累加時間的變數
+    private CharacterController controller;
 
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (PlayerIn == true)
-        {
-            deadDelayTimer += Time.deltaTime;
-            if (deadDelayTimer >= deadDelay)
-            {
-                Player.GetComponent<Transform>().transform.position = new Vector3(otherdoor.position.x, otherdoor.position.y, otherdoor.position.z);
-            }
-        }
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && PlayerIn == false)
         {
             PlayerIn = true;
             Player = other.gameObject;
+            Player.SetActive(false);
+            if (PlayerIn)
+            {
+                other.transform.position = Otherdoor.transform.position;
+            }
+            Player.SetActive(true);
         }
     }
 
