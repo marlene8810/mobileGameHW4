@@ -8,14 +8,15 @@ TagManager:
   - Water
   - door
   - Bullet
+  - coin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - coin
   - Water
   - UI
-  - 
+  - mission
   - 
   - 
   - 
