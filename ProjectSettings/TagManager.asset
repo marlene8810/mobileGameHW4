@@ -9,6 +9,7 @@ TagManager:
   - door
   - Bullet
   - coin
+  - Enemy
   layers:
   - Default
   - TransparentFX
