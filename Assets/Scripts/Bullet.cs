@@ -36,14 +36,13 @@ public class Bullet : MonoBehaviour
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
         }
-    }
 
-    void OnTriggerEnter(Collision other)
-    {
         if (other.gameObject.tag == "Enemy")
         {
             this.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }
     }
+
+
 }

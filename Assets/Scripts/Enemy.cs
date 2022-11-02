@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private float hp = 100f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,15 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            //刪除物件 設為停用、並移除 
-            other.gameObject.SetActive(false);
-            Destroy(this.gameObject);
+            //先扣血
+            hp -= 25;
+            if (hp <= 0)
+            {
+                //刪除物件 設為停用、並移除 
+                other.gameObject.SetActive(false);
+                Destroy(this.gameObject);
+            }
+
         }
     }
 }
