@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
             if (hp <= 0)
             {
                 //刪除物件 設為停用、並移除
-                other.gameObject.SetActive(false);
+                other.gameObject.SetActive(true);
                 Destroy(this.gameObject);
             }
         }

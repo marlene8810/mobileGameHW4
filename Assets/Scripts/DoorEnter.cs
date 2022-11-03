@@ -5,19 +5,19 @@ using UnityEngine;
 public class DoorEnter : MonoBehaviour
 {
     public Transform Otherdoor;
+
     public GameObject Player;
+
     public bool PlayerIn;
 
     private CharacterController controller;
 
     void Start()
     {
-
     }
 
     void Update()
     {
-
     }
 
     void OnTriggerEnter(Collider other)
