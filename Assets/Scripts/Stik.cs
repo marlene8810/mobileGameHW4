@@ -5,19 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Stik : MonoBehaviour
 {
-    public AudioClip StickSound;
+    public AudioClip dead;
 
-    private AudioSource source;
+    public AudioSource music;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        music = gameObject.AddComponent<AudioSource>();
+        music.playOnAwake = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        source = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,7 +24,8 @@ public class Stik : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("踩到地刺");
-            source.PlayOneShot(StickSound, 1f);
+            music.clip = dead;
+            music.Play();
 
             // 重新開啟當前場景
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

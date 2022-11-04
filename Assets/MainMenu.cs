@@ -9,4 +9,16 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("離開遊戲");
+        Application.Quit();
+    }
+
+    public void BackMenu()
+    {
+        Debug.Log("回主選單");
+        SceneManager.LoadScene(0);
+    }
 }
