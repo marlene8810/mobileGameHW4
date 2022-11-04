@@ -16,6 +16,11 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Illustrate()
+    {
+        Debug.Log("叫出遊戲玩法");
+    }
+
     public void BackMenu()
     {
         Debug.Log("回主選單");
