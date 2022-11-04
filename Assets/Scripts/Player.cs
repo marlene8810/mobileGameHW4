@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             //先扣血
-            hp -= 5;
+            hp -= 10;
             if (hp <= 0)
             {
                 // 重新開啟當前場景
