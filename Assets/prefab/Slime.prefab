@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5019770938215306232, guid: 50c65c2765517334ca11e98f383488bc, type: 3}
   speed: 2
+  blood: {fileID: 4045987467997447077, guid: f4ea9e5037a4a114d9fb1a0d03a3a53b, type: 3}
 --- !u!135 &8245386242863286341
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -277,8 +278,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 46.296623
-  m_Center: {x: 1.4823472, y: 37.51808, z: 1.3529357}
+  m_Radius: 52.371593
+  m_Center: {x: 0.45076552, y: 46.929314, z: -1.0627089}
 --- !u!1 &7689785979058842657
 GameObject:
   m_ObjectHideFlags: 0

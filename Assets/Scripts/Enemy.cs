@@ -8,10 +8,13 @@ public class Enemy : MonoBehaviour
 
     public float speed;
 
+    public ParticleSystem blood;
+
     private float hp = 10f;
 
     void Start()
     {
+        blood = blood.GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -36,6 +39,8 @@ public class Enemy : MonoBehaviour
             hp -= 10;
             if (hp <= 0)
             {
+                Instantiate(blood, transform.position, Quaternion.identity);
+
                 //刪除物件 設為停用、並移除
                 other.gameObject.SetActive(true);
                 Destroy(this.gameObject);
