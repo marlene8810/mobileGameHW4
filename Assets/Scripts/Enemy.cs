@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public GameObject player;
 
+    public float speed;
+
     private float hp = 10f;
 
     void Start()
@@ -20,7 +22,9 @@ public class Enemy : MonoBehaviour
                 .LookRotation(player.transform.position - transform.position);
         transform.rotation =
             Quaternion
-                .Slerp(transform.rotation, targtRotation, 1 * Time.deltaTime);
+                .Slerp(transform.rotation,
+                targtRotation,
+                speed * Time.deltaTime);
         transform.position += transform.forward * 1f * Time.deltaTime;
     }
 
