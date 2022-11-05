@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class NetLeavel2 : MonoBehaviour
 {
+    public GameObject Susecc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,17 @@ public class NetLeavel2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            // 切換場景到 Level2
-            SceneManager.LoadScene(3);
+            Debug.Log("成功拉!kk");
+            Susecc.SetActive(true);
+
+            //延遲2秒
+            Invoke("Restart", 2f);
         }
+    }
+
+    void Restart()
+    {
+        // 重新開啟當前場景
+        SceneManager.LoadScene(3);
     }
 }

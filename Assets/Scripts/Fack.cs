@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextLeavel3 : MonoBehaviour
+public class Fack : MonoBehaviour
 {
-    public GameObject EndMenu;
+    public GameObject FakeFlag;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
+    void start()
     {
     }
 
@@ -22,9 +16,7 @@ public class NextLeavel3 : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("被騙拉!kk");
-            EndMenu.SetActive(true);
-
-            //延遲2秒
+            FakeFlag.SetActive(true);
             Invoke("Restart", 2f);
         }
     }
@@ -32,6 +24,7 @@ public class NextLeavel3 : MonoBehaviour
     void Restart()
     {
         // 重新開啟當前場景
-        SceneManager.LoadScene(0);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

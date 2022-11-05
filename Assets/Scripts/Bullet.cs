@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
     Rigidbody rb;
 
     // 計時秒數
-
     float lifeTime = 0;
 
     void Start()
@@ -21,7 +20,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 計時三秒後刪除
+        // 計時1.5秒後刪除
 
         lifeTime += Time.deltaTime;
         if (lifeTime > 1.5f)
