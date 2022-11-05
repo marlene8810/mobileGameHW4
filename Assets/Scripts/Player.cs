@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    public int KeyAmount;
+
     private CharacterController controller;
 
     private float hp = 10f;
@@ -94,6 +96,15 @@ public class Player : MonoBehaviour
                 // 重新開啟當前場景
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Key")
+        {
+            KeyAmount += 1;
+            Destroy(other.gameObject);
         }
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - coin
   - Enemy
+  - Key
   layers:
   - Default
   - TransparentFX
