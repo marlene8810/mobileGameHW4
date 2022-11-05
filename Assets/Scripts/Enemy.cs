@@ -10,15 +10,20 @@ public class Enemy : MonoBehaviour
 
     public ParticleSystem blood;
 
-    private float hp = 10f;
+    public float hp;
+
+    public Animator animator;
 
     void Start()
     {
         blood = blood.GetComponent<ParticleSystem>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        animator.SetBool("idle", true);
+
         //敵人追逐玩家
         Quaternion targtRotation =
             Quaternion
@@ -39,6 +44,11 @@ public class Enemy : MonoBehaviour
             hp -= 10;
             if (hp <= 0)
             {
+                GetComponent<MeshRenderer>().material.color = Color.red;
+                animator.SetBool("idle", false);
+                Debug.Log("被傷害");
+                animator.SetTrigger("Hurt");
+
                 Instantiate(blood, transform.position, Quaternion.identity);
 
                 //刪除物件 設為停用、並移除
