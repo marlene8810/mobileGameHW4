@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6592527893153699643}
   - component: {fileID: 6699073993690493138}
+  - component: {fileID: 3362659642682726171}
   m_Layer: 0
   m_Name: FackFlag
   m_TagString: Untagged
@@ -129,8 +130,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7390047, y: 4.8860683, z: 1.8645397}
-  m_Center: {x: -0.06536317, y: 1.9430342, z: -0.020147799}
+  m_Size: {x: 2.7340481, y: 4.8860683, z: 2.5138404}
+  m_Center: {x: 0.058479242, y: 1.9430342, z: 0.17531274}
+--- !u!114 &3362659642682726171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779962873769332097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6184a60d5d6b7f848baee7d998058ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FakeFlag: {fileID: 794740698584258155, guid: aa0edee69d3cc22449e15e05bfbdadae, type: 3}
 --- !u!1 &6303781369931137716
 GameObject:
   m_ObjectHideFlags: 0

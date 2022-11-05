@@ -17,14 +17,13 @@ public class Fack : MonoBehaviour
         {
             Debug.Log("被騙拉!kk");
             FakeFlag.SetActive(true);
-            Invoke("Restart", 2f);
+            Invoke("Restart", 1f);
         }
     }
 
     void Restart()
     {
         // 重新開啟當前場景
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
