@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     public int KeyAmount;
 
+    public Component doorCollider;
+
     private CharacterController controller;
 
     private float hp = 10f;
@@ -103,6 +105,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "Key")
         {
+            doorCollider.GetComponent<BoxCollider>().enabled = true;
             KeyAmount += 1;
             Destroy(other.gameObject);
         }
