@@ -135,6 +135,8 @@ MonoBehaviour:
   joyStick: {fileID: 0}
   firePoint: {fileID: 5019770939196406653}
   bulletPrefab: {fileID: 5801016503926365792, guid: bc24fc27d75314241886385484411870, type: 3}
+  KeyAmount: 0
+  doorCollider: {fileID: 0}
 --- !u!1 &5019770939196406652
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9cbc98463e5e0294395651cdc5dd29a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
