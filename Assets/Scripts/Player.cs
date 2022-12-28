@@ -1,15 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public float speed = 10;
+
     public Joystick joyStick;
+
     public Transform firePoint;
+
     public GameObject bulletPrefab;
 
+    public int KeyAmount;
+
+    public Component doorCollider;
+
     private CharacterController controller;
+
+    private float hp = 10f;
 
     private GameObject focusEnemy;
 
@@ -23,12 +33,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-      
-
         // 取得方向鍵輸入
         // float h = Input.GetAxis("Horizontal");
         // float v = Input.GetAxis("Vertical");
-
         // 取得虛擬搖桿輸入
         float h = joyStick.Horizontal;
         float v = joyStick.Vertical;
@@ -45,7 +52,8 @@ public class Player : MonoBehaviour
 
             // 使用 Lerp 漸漸轉向
             Quaternion targetRotation = Quaternion.Euler(0, faceAngle, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.3f);
+            transform.rotation =
+                Quaternion.Lerp(transform.rotation, targetRotation, 0.3f);
         }
 
         // 地心引力 (y)
@@ -56,16 +64,15 @@ public class Player : MonoBehaviour
 
         // 移動角色位置
         controller.Move(dir * speed * Time.deltaTime);
-
-
     }
 
     void Fire()
     {
         // 產生出子彈
-        Instantiate(bulletPrefab, firePoint.transform.position, transform.rotation);
+        Instantiate(bulletPrefab,
+        firePoint.transform.position,
+        transform.rotation);
     }
-
 
     // 一直射擊的 Coroutine 函式
     IEnumerator KeepShooting()
@@ -77,6 +84,30 @@ public class Player : MonoBehaviour
 
             // 暫停 0.5 秒
             yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            //先扣血
+            hp -= 10;
+            if (hp <= 0)
+            {
+                // 重新開啟當前場景
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Key")
+        {
+            doorCollider.GetComponent<BoxCollider>().enabled = true;
+            KeyAmount += 1;
+            Destroy(other.gameObject);
         }
     }
 }
